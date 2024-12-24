@@ -7,14 +7,7 @@
 
 import SwiftUI
 
-struct Activity {
-    let id: Int
-    let title: String
-    let subttitle: String
-    let image: String
-    let tintColor: Color
-    let amount: String
-}
+
 struct ActivityCardView: View {
     @State var activity: Activity
     var body: some View {
