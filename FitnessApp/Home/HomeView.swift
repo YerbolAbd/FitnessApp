@@ -11,7 +11,13 @@ struct HomeView: View {
     @State var calories: Int = 123
     @State var active: Int = 123
     @State var stand: Int = 8
-     
+     var mockActivities = [
+        Activity(id: 0, title: "Today Steps", subttitle: "Goal 10,000", image: "figure.walk", tintColor: .green, amount: "9153"),
+        Activity(id: 1, title: "Workout", subttitle: "Goal 9,000", image: "figure.walk", tintColor: .red, amount: "7000"),
+        Activity(id: 2, title: "Today", subttitle: "Goal 12,000", image: "figure.walk", tintColor: .blue, amount: "8100"),
+        Activity(id: 3, title: "Today Steps", subttitle: "Goal 11,000", image: "figure.run ", tintColor: .purple , amount: "12000")]
+    
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading) {
@@ -87,6 +93,13 @@ struct HomeView: View {
                     }
                 }
                 .padding(.horizontal)
+                
+                LazyVGrid(columns: Array(repeating: GridItem(spacing: 20), count: 2)) {
+                    ForEach(mockActivities, id: \.id) { activity in
+                        ActivityCardView(activity: activity)
+                    }
+                }
+                .padding( )
             }
         }
     }
